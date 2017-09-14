@@ -10,6 +10,5 @@ setup(
     include_package_data=True,
     description="trollol",
     packages=find_packages(),
-    install_requires=reqs,
     dependency_links=[]
 )
