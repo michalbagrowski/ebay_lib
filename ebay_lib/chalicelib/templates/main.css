@@ -1,0 +1,69 @@
+body {
+    background-color: #EDEDED;
+    color: #7f7f7f;
+    text-align: center;
+}
+
+a {
+    color: #7f7f7f;
+}
+div#auction-list  div {
+    width: 28%;
+    float: left;
+    padding: 2%;
+}
+div#auction-list div div {
+    background-color: #FFFFFF;
+    margin: 10px;
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    position: relative;
+    display: inline-block;
+}
+
+div#auction-list div div img {
+    width: 90%;
+}
+
+div#auction-list div div h1 {
+    margin: 2px;
+    padding:0;
+    margin:0 10px 5px 10px;
+    color:#7f7f7f;
+}
+
+div#auction-list div div div.price_tag
+{
+    position: absolute;
+    background-color: #EB5E00;
+    width: 100px;
+    height: 18px;
+    bottom: 0%;
+    right: 0%;
+}
+
+div#auction-list div div div.price_tag a {
+    color: #000000;
+}
+
+div#paginator ul li {
+    display: inline-block;
+}
+
+
+
+
+div#searches {
+    font-weight:bold;
+    font-size:2.929em;
+    line-height:1.2;
+}
+
+div#searches ul li {
+    display: inline;
+}
+.current{
+    font-weight: bold
+}
