@@ -93,7 +93,7 @@ def category(category, page):
 
         "category": category,
         "current_page": page,
-        "total_pages"  int(items["paginationOutput"]["totalPages"]),
+        "total_pages":  int(items["paginationOutput"]["totalPages"]),
         "in_rows" : in_rows
         }
 
