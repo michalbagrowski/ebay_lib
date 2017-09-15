@@ -19,7 +19,8 @@ def get_keywords(items):
         keywords = keywords + i["title"].split()
 
     for keyword in keywords:
-        print(keyword)
+        if keyword not in count_keys:
+            count_keys[keyword] = 0
         count_keys[keyword] =count_keys[keyword] +1
     print(count_keys)
     return list(set(keywords))
