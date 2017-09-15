@@ -2,7 +2,7 @@ import time
 from chalice import Chalice, Response
 from chalicelib import config
 import chalicelib
-
+import operator
 from pymemcache.client.base import Client
 import os
 import json
