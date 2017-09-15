@@ -126,8 +126,7 @@ def category(category, page):
 
 def get_env():
     return Environment(
-            loader=PackageLoader('ebay_lib
-', 'templates'),
+            loader=PackageLoader('ebay_lib', 'templates'),
             autoescape=select_autoescape(['html', 'xml'])
         )
 
