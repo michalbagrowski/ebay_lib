@@ -37,8 +37,7 @@ def search(query, page = 1):
             "description": config.description,
 
             "items":  items,
-            "pages": = get_pages(page, int(items["paginationOutput"]["totalPages"])),
-
+            "pages": get_pages(page, int(items["paginationOutput"]["totalPages"])),
             "query": query,
             "current_page": page,
             "total_pages": int(items["paginationOutput"]["totalPages"]),
