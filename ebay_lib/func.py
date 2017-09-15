@@ -23,6 +23,7 @@ def search(query, page = 1):
     limit = 51
 
     rows = 3
+    print(config.cats[0])
     items = get_search_items(query, config.cats[0], 51, page)
 
     if limit  == len(items["searchResult"]["item"]):
@@ -96,12 +97,6 @@ def category(category, page):
         "total_pages":  int(items["paginationOutput"]["totalPages"]),
         "in_rows" : in_rows
         }
-
-def sitemap():
-    return {
-            "queries": ["DJI","Drones","Mavic", "DJI Maciv PRO","Spark" ,"Parrot","Hubsan","GoPro"]
-
-    }
 
 def get_items(cat, limit = 10, page = 1):
     key_name = "items_" + str(cat) + "_" + str(limit) + "_" + str(page)
