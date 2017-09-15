@@ -14,8 +14,12 @@ import urllib
 import boto3
 def get_keywords(items):
     keywords = []
+    count_keys = {}
     for i in items:
         keywords = keywords + i["title"].split()
+    for keyword in keywords:
+        count_keys[keyword] =count_keys[keyword] +1
+    print(count_keys)
     return list(set(keywords))
 
 def search(query, page = 1):
