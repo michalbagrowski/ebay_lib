@@ -6,7 +6,7 @@ setup(
     name='ebay_lib',
     author="Michał Bagrowski",
     author_email="michal@bagrowski.com",
-    version='0.0.2',
+    version='0.0.6',
     include_package_data=True,
     description="trollol",
     packages=find_packages(),
