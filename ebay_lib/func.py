@@ -77,7 +77,7 @@ def index():
             "current_page": page,
             "total_pages":  int(items["paginationOutput"]["totalPages"]),
             "limit": limit,
-            "in_rows: int(limit/rows)+1
+            "in_rows": int(limit/rows)+1
         }
     )
 
