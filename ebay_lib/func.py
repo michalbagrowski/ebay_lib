@@ -22,8 +22,9 @@ def get_keywords(items):
         if keyword not in count_keys:
             count_keys[keyword] = 0
         count_keys[keyword] =count_keys[keyword] +1
-
+    count_keys = sorted(x.items(), key=operator.itemgetter(0))
     keywords = []
+
     for aaa in count_keys:
         print(aaa)
         if aaa[1] > 1:
