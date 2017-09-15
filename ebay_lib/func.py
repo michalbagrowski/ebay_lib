@@ -63,9 +63,7 @@ def index():
     rows = 3
 
     items = get_items(config.cats[0], limit)
-
     keywords = get_keywords(items["searchResult"]["item"])
-    template = get_template('index.html')
 
     return {
             "keywords": ", ".join(keywords),
