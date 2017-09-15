@@ -70,7 +70,7 @@ def index():
     return {
             "keywords": ", ".join(keywords),
             "title":  config.title,
-            "description":= config.description,
+            "description": config.description,
             "items": items,
             "pages":  get_pages(page, int(items["paginationOutput"]["totalPages"])),
             "category": config.cats[0],
