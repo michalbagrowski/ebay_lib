@@ -23,7 +23,6 @@ def search(query, page = 1):
     limit = 51
 
     rows = 3
-    env = get_env()
     items = get_search_items(query, config.cats[0], 51, page)
 
     if limit  == len(items["searchResult"]["item"]):
@@ -32,28 +31,21 @@ def search(query, page = 1):
         in_rows = int(len(items["searchResult"]["item"])/rows)
 
     keywords = get_keywords(items["searchResult"]["item"])
-    template = env.get_template('index.html')
-    return Response(
-        body = template.render(
-            keywords = ", ".join(keywords),
-            title = config.title,
-            description = config.description,
+    return {
+            "keywords": ", ".join(keywords),
+            "title": config.title,
+            "description": config.description,
 
-            items = items,
-            pages = get_pages(page, int(items["paginationOutput"]["totalPages"])),
+            "items":  items,
+            "pages": = get_pages(page, int(items["paginationOutput"]["totalPages"])),
 
-            query = query,
-            current_page = page,
-            total_pages = int(items["paginationOutput"]["totalPages"]),
-            limit = limit,
-            in_rows = in_rows
-
-        ),
-        status_code = 200,
-        headers = {
-            "Content-Type": "text/html"
+            "query": query,
+            "current_page": page,
+            "total_pages": int(items["paginationOutput"]["totalPages"]),
+            "limit": limit,
+            "in_rows": in_rows
         }
-    )
+
 
 def index():
     start = time.time()
@@ -63,6 +55,7 @@ def index():
     rows = 3
 
     items = get_items(config.cats[0], limit)
+
     keywords = get_keywords(items["searchResult"]["item"])
 
     return {
@@ -82,7 +75,6 @@ def index():
 
 def category(category, page):
     page = int(page)
-    env = get_env()
     limit = 51
     items = get_items(category, 50, page)
     rows = 3
@@ -91,29 +83,26 @@ def category(category, page):
     else:
         in_rows = int(len(items["searchResult"]["item"])/rows)
 
-
     keywords = get_keywords(items["searchResult"]["item"])
-    template = env.get_template('index.html')
-    return Response(
-        body = template.render(
-            keywords = ", ".join(keywords),
-            title = config.title,
-            description = config.description,
+    return {
+        "keywords": ", ".join(keywords),
+        "title":  config.title,
+        "description":  config.description,
 
-            items = items,
-            pages = get_pages(page, int(items["paginationOutput"]["totalPages"])),
+        "items": items,
+        "pages": get_pages(page, int(items["paginationOutput"]["totalPages"])),
 
-            category = category,
-            current_page = page,
-            total_pages = int(items["paginationOutput"]["totalPages"]),
-            in_rows = in_rows
-        ),
-        status_code = 200,
-        headers = {
-            "Content-Type": "text/html"
+        "category": category,
+        "current_page": page,
+        "total_pages"  int(items["paginationOutput"]["totalPages"]),
+        "in_rows" : in_rows
         }
-    )
 
+def sitemap():
+    return {
+            "queries": = ["DJI","Drones","Mavic", "DJI Maciv PRO","Spark" ,"Parrot","Hubsan","GoPro"]
+
+    )
 
 def get_items(cat, limit = 10, page = 1):
     key_name = "items_" + str(cat) + "_" + str(limit) + "_" + str(page)
