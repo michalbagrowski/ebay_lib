@@ -2,7 +2,7 @@ import time
 from chalice import Chalice, Response
 from chalicelib import config
 import chalicelib
-from jinja2 import Environment, PackageLoader, select_autoescape
+
 from pymemcache.client.base import Client
 import os
 import json
@@ -55,10 +55,6 @@ def search(query, page = 1):
         }
     )
 
-def get_template(template):
-    env = get_env()
-    return env.get_template(template)
-
 def index():
     start = time.time()
 
@@ -71,8 +67,7 @@ def index():
     keywords = get_keywords(items["searchResult"]["item"])
     template = get_template('index.html')
 
-    return Response(
-        body = template.render(
+    return {
             keywords = ", ".join(keywords),
             title = config.title,
             description = config.description,
@@ -83,10 +78,6 @@ def index():
             total_pages = int(items["paginationOutput"]["totalPages"]),
             limit = limit,
             in_rows = int(limit/rows)+1
-        ),
-        status_code = 200,
-        headers = {
-            "Content-Type": "text/html"
         }
     )
 
@@ -124,12 +115,6 @@ def category(category, page):
             "Content-Type": "text/html"
         }
     )
-
-def get_env():
-    return Environment(
-            loader=PackageLoader('chalicelib', 'templates'),
-            autoescape=select_autoescape(['html', 'xml'])
-        )
 
 
 def get_items(cat, limit = 10, page = 1):
