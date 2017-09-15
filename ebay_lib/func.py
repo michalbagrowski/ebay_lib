@@ -68,16 +68,16 @@ def index():
     template = get_template('index.html')
 
     return {
-            keywords = ", ".join(keywords),
-            title = config.title,
-            description = config.description,
-            items = items,
-            pages = get_pages(page, int(items["paginationOutput"]["totalPages"])),
-            category = config.cats[0],
-            current_page = page,
-            total_pages = int(items["paginationOutput"]["totalPages"]),
-            limit = limit,
-            in_rows = int(limit/rows)+1
+            "keywords": ", ".join(keywords),
+            "title":  config.title,
+            "description":= config.description,
+            "items": items,
+            "pages":  get_pages(page, int(items["paginationOutput"]["totalPages"])),
+            "category": config.cats[0],
+            "current_page": page,
+            "total_pages":  int(items["paginationOutput"]["totalPages"]),
+            "limit": limit,
+            "in_rows: int(limit/rows)+1
         }
     )
 
