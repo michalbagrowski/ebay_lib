@@ -24,7 +24,7 @@ def get_keywords(items):
         count_keys[keyword] =count_keys[keyword] +1
     print(count_keys)
     print(sorted(count_keys.keys()))
-    print(sorted(count_keys.items(), key=operator.itemgetter(1))
+    print(sorted(count_keys.items(), key=operator.itemgetter(1)))
     return list(set(keywords))
 
 def search(query, page = 1):
