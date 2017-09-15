@@ -22,11 +22,12 @@ def get_keywords(items):
         if keyword not in count_keys:
             count_keys[keyword] = 0
         count_keys[keyword] =count_keys[keyword] +1
-    print(count_keys)
-    print(sorted(count_keys.keys()))
-    print(sorted(count_keys.items(), key = operator.itemgetter(1)>2, reverse = True))
 
-    return list(set(keywords))
+    keywords = []
+    for name, value in count_keys:
+        if(value> 1):
+            keywords.append(name)
+    return keywords
 
 def search(query, page = 1):
     page = int(page)
