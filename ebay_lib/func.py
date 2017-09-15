@@ -54,6 +54,10 @@ def search(query, page = 1):
         }
     )
 
+def get_template():
+    env = get_env()
+    return env.get_template("intex.html")
+
 def index():
     start = time.time()
 
@@ -61,12 +65,10 @@ def index():
     limit = 51
     rows = 3
 
-    env = get_env()
-
     items = get_items(config.cats[0], limit)
 
     keywords = get_keywords(items["searchResult"]["item"])
-    template = env.get_template('index.html')
+    template = get_template('index.html')
 
     return Response(
         body = template.render(
@@ -124,7 +126,7 @@ def category(category, page):
 
 def get_env():
     return Environment(
-            loader=PackageLoader('chalicelib', 'templates'),
+            loader=PackageLoader('ebay_lib', 'templates'),
             autoescape=select_autoescape(['html', 'xml'])
         )
 
