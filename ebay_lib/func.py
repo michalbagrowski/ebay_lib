@@ -79,7 +79,7 @@ def index():
             "limit": limit,
             "in_rows": int(limit/rows)+1
         }
-    )
+
 
 
 def category(category, page):
