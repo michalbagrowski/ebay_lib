@@ -1,6 +1,7 @@
 import time
 from chalice import Chalice, Response
 from chalicelib import config
+import chalicelib
 from jinja2 import Environment, PackageLoader, select_autoescape
 from pymemcache.client.base import Client
 import os
@@ -126,7 +127,7 @@ def category(category, page):
 
 def get_env():
     return Environment(
-            loader=PackageLoader('ebay_lib', 'templates'),
+            loader=PackageLoader('chalicelib', 'templates'),
             autoescape=select_autoescape(['html', 'xml'])
         )
 
