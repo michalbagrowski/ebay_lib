@@ -24,9 +24,11 @@ def get_keywords(items):
         count_keys[keyword] =count_keys[keyword] +1
 
     keywords = []
-    for name, value in count_keys:
-        if(value> 1):
-            keywords.append(name)
+    for aaa in count_keys:
+        print(aaa)
+        if aaa[1] > 1:
+            keywords.append(aaa[0])
+
     return keywords
 
 def search(query, page = 1):
