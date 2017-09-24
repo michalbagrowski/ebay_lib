@@ -170,7 +170,7 @@ def get_pages(page, total):
 
 import base64
 def get_search_items(query, cat, limit = 10, page = 1):
-    key_name = "search_"+ base64.b64encode(query.encode('ascii')) + "_query_"+ str(cat) + "_" + str(limit) + "_" + str(page)
+    key_name = "search_"+ str(base64.b64encode(query.encode('ascii'))) + "_query_"+ str(cat) + "_" + str(limit) + "_" + str(page)
     result = get_cache(key_name)
     if result:
         items = json.loads(result)
