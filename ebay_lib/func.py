@@ -168,7 +168,7 @@ def get_pages(page, total):
 
     return list(set(pages_first+pages_current))
 def get_search_items(query, cat, limit = 10, page = 1):
-    key_name = "seaarch_"+ "query_"+ str(cat) + "_" + str(limit) + "_" + str(page)
+    key_name = "search_"+ query + "_query_"+ str(cat) + "_" + str(limit) + "_" + str(page)
     result = get_cache(key_name)
     if result:
         items = json.loads(result)
