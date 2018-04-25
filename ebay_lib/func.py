@@ -1,9 +1,9 @@
 import time
-from chalice import Chalice, Response
-from chalicelib import config
-import chalicelib
+#from chalice import Chalice, Response
+#from chalicelib import config
+#import chalicelib
 import operator
-from pymemcache.client.base import Client
+#from pymemcache.client.base import Client
 import os
 import json
 
