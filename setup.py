@@ -1,6 +1,6 @@
 #from pip.download import PipSession
-from pip.req import parse_requirements
-from setuptools import find_packages, setup
+#from pip.req import parse_requirements
+#from setuptools import find_packages, setup
 
 setup(
     name='ebay_lib',
